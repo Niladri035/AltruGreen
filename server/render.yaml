@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: altrugreen-api
+    env: node
+    region: oregon
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_PRICE_ID_MONTHLY
+        sync: false
+      - key: STRIPE_PRICE_ID_YEARLY
+        sync: false
+      - key: EMAIL_SERVICE_API_KEY
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: PORT
+        value: 5000
